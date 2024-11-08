@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2cbey377chi6"]
+
+[ext_resource type="PackedScene" uid="uid://cngnjb15xxe3u" path="res://title_ui_template/controls/title_control.tscn" id="1_eeevk"]
+[ext_resource type="PackedScene" uid="uid://d2n4lafbrfaig" path="res://title_ui_template/controls/settings_control.tscn" id="2_50gvo"]
+[ext_resource type="PackedScene" uid="uid://0fgneeombwrt" path="res://title_ui_template/controls/credits_control.tscn" id="3_l3i3v"]
+
+[node name="TitleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleControl" parent="." instance=ExtResource("1_eeevk")]
+layout_mode = 1
+
+[node name="PlayButton" parent="TitleControl/VBoxContainer" index="2"]
+scene_path = "res://title_ui_template/scenes/dummy_scene.tscn"
+
+[node name="SettingsButton" parent="TitleControl/VBoxContainer" index="3" node_paths=PackedStringArray("to")]
+to = NodePath("../../../SettingsControl")
+
+[node name="CreditsButton" parent="TitleControl/VBoxContainer" index="4" node_paths=PackedStringArray("to")]
+to = NodePath("../../../CreditsControl")
+
+[node name="SettingsControl" parent="." instance=ExtResource("2_50gvo")]
+layout_mode = 1
+
+[node name="BackButton" parent="SettingsControl/VBoxContainer" index="3" node_paths=PackedStringArray("to")]
+to = NodePath("../../../TitleControl")
+
+[node name="CreditsControl" parent="." instance=ExtResource("3_l3i3v")]
+visible = false
+layout_mode = 1
+
+[node name="BackButton" parent="CreditsControl/VBoxContainer" index="2" node_paths=PackedStringArray("to")]
+to = NodePath("../../../TitleControl")
+
+[editable path="TitleControl"]
+[editable path="SettingsControl"]
+[editable path="CreditsControl"]

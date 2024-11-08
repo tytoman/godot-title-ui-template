@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://crm3r5hsb1tss"]
+
+[ext_resource type="Script" path="res://title_ui_template/misc/loading_screen_singleton.gd" id="1_j0ifc"]
+[ext_resource type="Shader" path="res://title_ui_template/misc/transition.gdshader" id="2_1nc8h"]
+[ext_resource type="Texture2D" uid="uid://dyugkb6d3vf55" path="res://title_ui_template/misc/rule.png" id="3_dv2v1"]
+[ext_resource type="Script" path="res://title_ui_template/components/loading_progress_bar.gd" id="4_y3xe5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8pnmy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3btcx"]
+shader = ExtResource("2_1nc8h")
+shader_parameter/progress = 0.0
+shader_parameter/edge = 0.05
+shader_parameter/inverse = false
+shader_parameter/rule = ExtResource("3_dv2v1")
+
+[sub_resource type="ImageTexture" id="ImageTexture_614aa"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ldj3j"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_vqy6t"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_65hl1"]
+
+[node name="LoadingScreen" type="CanvasLayer" node_paths=PackedStringArray("transition_panel")]
+layer = 128
+script = ExtResource("1_j0ifc")
+transition_panel = NodePath("LoadingControl/ColorRect")
+
+[node name="LoadingControl" type="Control" parent="."]
+material = SubResource("CanvasItemMaterial_8pnmy")
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LoadingControl"]
+material = SubResource("ShaderMaterial_3btcx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadingControl/ColorRect"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_right = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LoadingLabel" type="Label" parent="LoadingControl/ColorRect/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Loading..."
+
+[node name="LoadingSlider" type="HSlider" parent="LoadingControl/ColorRect/VBoxContainer" node_paths=PackedStringArray("loading_screen")]
+use_parent_material = true
+layout_mode = 2
+theme_override_icons/grabber = SubResource("ImageTexture_614aa")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_ldj3j")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_vqy6t")
+theme_override_icons/tick = SubResource("ImageTexture_65hl1")
+max_value = 1.0
+step = 0.0
+editable = false
+scrollable = false
+script = ExtResource("4_y3xe5")
+loading_screen = NodePath("../../../..")

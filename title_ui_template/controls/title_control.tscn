@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://cngnjb15xxe3u"]
+
+[ext_resource type="Script" path="res://title_ui_template/controls/transitable_control.gd" id="1_7fixo"]
+[ext_resource type="Script" path="res://title_ui_template/components/quit_button.gd" id="1_uj5in"]
+[ext_resource type="Script" path="res://title_ui_template/components/transit_button.gd" id="2_lcsv8"]
+[ext_resource type="Script" path="res://title_ui_template/components/load_scene_button.gd" id="2_o5b1h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8nmpy"]
+font_size = 64
+
+[node name="TitleControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7fixo")
+anim_scale = Vector2(1.5, 1.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_right = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GameTitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game Title"
+label_settings = SubResource("LabelSettings_8nmpy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("2_o5b1h")
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("from")]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("2_lcsv8")
+from = NodePath("../..")
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("from")]
+layout_mode = 2
+text = "Credits
+"
+script = ExtResource("2_lcsv8")
+from = NodePath("../..")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("1_uj5in")
