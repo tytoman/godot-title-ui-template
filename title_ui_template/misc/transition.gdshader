@@ -8,13 +8,13 @@ uniform sampler2D rule : source_color;
 void fragment() {
 	vec2 uv = SCREEN_UV;
 	float alpha = texture(rule, uv).r;
-	
+
 	if (inverse) {
 		alpha = 1.0 - alpha;
 	}
-	
+
 	float t = progress * (1.0 + edge);
 	alpha = smoothstep(t - edge, t, alpha);
-	
+
 	COLOR.a *= alpha;
 }

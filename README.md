@@ -21,7 +21,7 @@ Each function is componentised and can be reconfigured without writing code.
 
 #### SoundPlayButton
 
-A button that specifies an `AudioStreamPlayer` and plays the sound when the button is pressed. Base class of `LoadSceneButton` with `TransitButton`.
+A button that specifies an `AudioStreamPlayer` and plays the sound when the button is pressed. Base class of `LoadSceneButton` and `TransitButton`.
 
 #### TransitButton
 
@@ -61,4 +61,4 @@ You can set the transition settings the edge and the rule texture from the `Load
 
 ## Usage
 
-You can use the `title_ui_template` by moving it directly to the project you want to use and registering `loading_screen.tscn` as LoadingScreen to Autoload. Each component can be used by adding it as a note or attaching it to the relevant node.
+You can use the `title_ui_template` by moving it directly to the project you want to use and registering `loading_screen.tscn` as LoadingScreen to Autoload. Each component can be used by adding it as a node or attaching it to the relevant node.
