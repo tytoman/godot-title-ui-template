@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cngnjb15xxe3u"]
 
-[ext_resource type="Script" path="res://title_ui_template/controls/transitable_control.gd" id="1_7fixo"]
+[ext_resource type="Script" path="res://title_ui_template/components/transitable_control.gd" id="1_7fixo"]
 [ext_resource type="Script" path="res://title_ui_template/components/quit_button.gd" id="1_uj5in"]
 [ext_resource type="Script" path="res://title_ui_template/components/transit_button.gd" id="2_lcsv8"]
 [ext_resource type="Script" path="res://title_ui_template/components/load_scene_button.gd" id="2_o5b1h"]

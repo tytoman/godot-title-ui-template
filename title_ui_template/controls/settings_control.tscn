@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2n4lafbrfaig"]
 
-[ext_resource type="Script" path="res://title_ui_template/controls/transitable_control.gd" id="1_65uty"]
+[ext_resource type="Script" path="res://title_ui_template/components/transitable_control.gd" id="1_65uty"]
 [ext_resource type="Script" path="res://title_ui_template/components/audio_volume_slider.gd" id="2_wid7f"]
 [ext_resource type="Script" path="res://title_ui_template/components/transit_button.gd" id="3_ekbap"]
 
